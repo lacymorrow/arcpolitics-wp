@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    banner: '/*!\n' +
+    WPbanner: '/*!\n' +
           ' * <%= pkg.name%> v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
           ' * Copyright 2014-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
           ' */\n',
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
     },
     autoprefixer: {
         options: {
-            browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'ie 9']
+            browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'ie 9'],
         },
         dist: {
           expand: true,
@@ -88,7 +88,7 @@ module.exports = function(grunt) {
     less: {
       dist: {
         options: {
-          cleancss: true,
+          cleancss: true
         },
         files: {
           "wordpress/wp-content/themes/arcpolitics/css/init.css": "wordpress/wp-content/themes/arcpolitics/css/init.less"
@@ -107,7 +107,7 @@ module.exports = function(grunt) {
     },
     watch: {
       css: {
-        files: ['src/css/**/*', 'src/less/**/*'],
+        files: ['wordpress/wp-content/themes/arcpolitics/css/init.less'],
         tasks: ['css']
       },
       html: {
