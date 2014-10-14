@@ -9,17 +9,17 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 }
 ?>
-<div class="sidebar-toggle">Menu</div>
-<div class="left-column">
-	<div class="main-menu">
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle"><?php _e( 'Primary Menu', 'arcpolitics' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</div>
-
+<div class="sub-menu-toggle">MENU</div>
+<div class="left-column sub-menu nicescroll">
 	<div class="article-menu">
-		<h3 class="sidebar-title">Emmy Awards</h3>
+<!-- 		<h3 class="sidebar-title">
+			<?php 
+				// $categories = get_the_category($wp_query->post->ID);
+				// if (!is_null($categories) && count($categories) > 1) {
+				// 	echo $categories[1]->name;
+				// }
+			?>
+		</h3> -->
 		<ul>
 			<?php
 			$args = array( 'post_type' => 'post', 'posts_per_page' => -1 );
@@ -28,9 +28,13 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 			// The Loop
 			if ( $the_query->have_posts() ) {
 				while ( $the_query->have_posts() ) {
-					$the_query->the_post(); ?>
-					<li><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></li>
-				<?php }
+					$the_query->the_post();
+					if( is_single() && $wp_query->post->ID == $the_query->post->ID ) { ?>
+						<li class="active"><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></li>
+					<?php } else { ?>
+						<li><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></li>
+					<?php }
+				}
 			} else {
 				// no posts found
 			}

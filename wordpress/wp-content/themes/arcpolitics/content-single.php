@@ -18,6 +18,11 @@
 		}
 		?>
 		</section>
+	    <?php if ( has_post_thumbnail() ) { ?>
+			<div class="post-thumb">
+		        <?php the_post_thumbnail('large'); ?>
+			</div>
+	    <?php } ?>
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<div class="entry-meta">
