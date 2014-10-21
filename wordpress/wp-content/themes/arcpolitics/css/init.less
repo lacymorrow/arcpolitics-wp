@@ -130,12 +130,14 @@ a:hover {
 			padding-top: 1px;
 			position: relative;
 			background: @color-white;
+			cursor: pointer;
 			span.menu-label {
 				color: @highlight-color;
 				font-size: 11px;
 				position: absolute;
 				bottom: 0;
 				left: 6px;
+				cursor: pointer;
 			}
 			&:before,
 			&:after,
@@ -211,6 +213,13 @@ a:hover {
 	}
 	a { 
 		color: @color-darkest-gray;
+		.external_icon {
+			padding: none;
+			background: none;
+		}
+		&:hover {
+			color: @color-red;
+		}
 	}
 }
 
@@ -327,7 +336,7 @@ a:hover {
 				border-color: @color-darker-gray;
 				text-decoration: none;
 				display: block;
-				padding: .75em 1.0625em .75em 1.0625em;
+				padding: .75em 1.2em;
 			}
 			a:hover {
 				color: @highlight-color;
@@ -432,6 +441,10 @@ section.tags {
 		color: @highlight-color;
 		text-decoration: none;
 	}
+}
+
+.archive h1.page-title {
+	text-transform: uppercase;
 }
 
 .hentry {

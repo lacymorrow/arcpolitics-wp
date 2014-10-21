@@ -35,8 +35,8 @@
 		</div>
 		<div class="site-subtitle">
 			<ul class="social-links">
-				<li><a href="#"><span class="fa fa-facebook"></span></a></li>
-				<li><a href="#"><span class="fa fa-twitter"></span></a></li>
+				<li><a href="https://www.facebook.com/arcpoliticspage"><span class="fa fa-facebook"></span></a></li>
+				<li><a href="https://twitter.com/Arcpolitics"><span class="fa fa-twitter"></span></a></li>
 				<li><a href="#"><span class="fa fa-google-plus"></span></a></li>
 			</ul>
 			<div class="site-logo">
