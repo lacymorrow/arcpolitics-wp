@@ -86,8 +86,29 @@ function arcpolitics_widgets_init() {
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1>',
 	) );
+	register_sidebar(array(
+		'name'=> 'Menu Sidebar',
+		'id' => 'sidebar-2',
+		'before_widget' => '<li id="%1$s" class="widget %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>',
+	));
 }
 add_action( 'widgets_init', 'arcpolitics_widgets_init' );
+
+/**
+ * Custom 'Read More' link
+ */
+function new_excerpt_more( $more ) {
+	return ' <a class="more-link" href="'. get_permalink( get_the_ID() ) . '">' . __( '  <span class="meta-nav fa fa-newspaper-o"></span>&nbsp;Read More', 'arcpolitics' ) . '</a>';
+}
+add_filter( 'excerpt_more', 'new_excerpt_more' );
+
+function modify_read_more_link() {
+	return ' <a class="more-link" href="'. get_permalink( get_the_ID() ) . '">' . __( '  <span class="meta-nav fa fa-newspaper-o"></span>&nbsp;Read More', 'arcpolitics' ) . '</a>';
+}
+add_filter( 'the_content_more_link', 'modify_read_more_link' );
 
 /**
  * Enqueue scripts and styles.

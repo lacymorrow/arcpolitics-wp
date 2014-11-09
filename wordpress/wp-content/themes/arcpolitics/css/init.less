@@ -13,21 +13,27 @@
 @color-red: #e90606;
 @color-blue: #55ACEE;
 @color-light-gray: #f2f2f2;
+@color-medium-gray: #e2e2e2;
 @color-gray: #2e2d2d;
 @color-darker-gray: #181818;
 @color-darkest-gray: #3a3a3a;
+@color-almost-black: #1F1F1F;
+
 @color-text-light-gray: #ababab;
 
 @link-color: @color-blue;
 @highlight-color: @color-red;
-@trim-color: @color-light-gray;
-@trim-secondary: @color-light-gray;
+@trim-color: @color-medium-gray;
+@trim-secondary: @color-medium-gray;
 
 
 /*--------------------------------------------------------------
 0.1 Utilities
 --------------------------------------------------------------*/
 
+.fixed {
+	position: fixed !important;
+}
 .relative {
 	position: relative;
 }
@@ -66,8 +72,10 @@ h1,h2,h3,h4,h5,h6 {
 	font-weight: 600;
 }
 p {
-	font-weight: 300;
+	font-weight: 400;
+	color: @color-almost-black;
 }
+
 a,
 a:visited,
 a:hover {
@@ -91,6 +99,9 @@ a:hover {
 	position: absolute;
 	z-index: 5;
 	width: 100%;
+	&.menu-open {
+		position: fixed;
+	}
 }
 .site-home-link {
 	position: absolute;
@@ -197,7 +208,7 @@ a:hover {
 	margin: 0;
 	padding: 0;
 	position: absolute;
-	right: 20px;
+	right: 10px;
 	top: 10px;
 	z-index: 6;
 	li {
@@ -256,11 +267,12 @@ a:hover {
 	left: -324px;
 	bottom: 0;
 	width: @sidebar-width;
+	height: 100%;
 	overflow-y: scroll;
 	scrollbar-track-color: transparent;
 	scrollbar-arrow-color: black;
 	border-right: 2px solid @trim-color;
-	transition: left .8s ease;
+	transition: left .5s ease;
 	&.active {
 		left: 0;
 		pointer-events: auto;
@@ -318,20 +330,6 @@ a:hover {
 					text-align: center;
 					background: @color-white;
 				}
-				&:after {
-					position: absolute;
-					right: 10px;
-					top: 20px;
-					display: inline-block;
-					content: "\f090";
-					display: inline-block;
-					font-family: icon;
-					font-style: normal;
-					font-weight: normal;
-					line-height: 1;
-					-webkit-font-smoothing: antialiased;
-					-moz-osx-font-smoothing: grayscale;
-				}
 				color: @color-darker-gray;
 				border-color: @color-darker-gray;
 				text-decoration: none;
@@ -367,11 +365,14 @@ a:hover {
 --------------------------------------------------------------*/
 
 .main-menu {
-	position: absolute;
-	z-index: 4;
+	position: fixed;
+	z-index: 6;
 	width: 100%;
-	top: -600px;
-	transition: top .4s ease;
+	top: 80px;
+	left: -100%;
+	transition: left .5s ease;
+	overflow-y: auto;
+	height: 100%;
 	ul li {
 		margin: 0;
 		padding: 0;
@@ -392,9 +393,10 @@ a:hover {
 		}
 	}
 	&.active {
-		top: 0;
+		left: 0;
 	}
 }
+
 
 .article-menu {
 	z-index: 1;
@@ -411,7 +413,7 @@ a:hover {
 		font-size: 22px;
 	}
 	.entry-content p {
-		font-size: 12px;
+		font-size: 14px;
 	}
 }
 
@@ -485,11 +487,20 @@ section.tags {
 		color: @highlight-color;
 	}
 }
+.entry-content {
+	p {
+		font-size: 18px;
+	}
+}
 .nav-links a {
 	color: @color-darkest-gray;
 	&:hover {
 		color: @highlight-color;
 	} 
+}
+
+.form-allowed-tags {
+	display: none;
 }
 
 .single {
@@ -509,7 +520,11 @@ section.tags {
 
 // XS grid
 @media (max-width: @screen-xs-min) {
-
+	.admin-bar {
+		.main-menu {
+			top: 126px;
+		}
+	}
 }
 
 // Small grid
@@ -523,8 +538,11 @@ section.tags {
 	.site-header {
 		position: fixed;
 	}
-	.admin-bar .left-column {
-		top: 112px;
+	.admin-bar {
+		.left-column,
+		.main-menu {
+			top: 112px;
+		}
 	}
 	.social-links {
 		top: 40px;

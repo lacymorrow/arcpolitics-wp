@@ -27,10 +27,19 @@
 		});
 	}
 	function toggleMainMenu () {
+		if(!$('.sub-menu').hasClass('active')) {
+			
+			$('#wpadminbar').toggleClass('fixed');
+			$('.site-header').toggleClass('menu-open');
+		}
 		$('.main-menu-toggle').toggleClass('active');
 		$('.main-menu').toggleClass('active');
 	}
 	function toggleSubMenu () {
+		if(!$('.main-menu').hasClass('active')) {
+			$('#wpadminbar').toggleClass('fixed');
+			$('.site-header').toggleClass('menu-open');
+		}
 		$('.sub-menu-toggle').toggleClass('active');
 		$('.sub-menu').toggleClass('active');
 	}

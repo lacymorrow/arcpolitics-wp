@@ -26,6 +26,14 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site antiscroll-wrap">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'arcpolitics' ); ?></a>
+	<div class="main-menu">
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+			<?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
+				<?php dynamic_sidebar( 'sidebar-2' ); ?>
+			<?php endif; ?>
+		</nav><!-- #site-navigation -->
+	</div>
 	<header id="masthead" class="site-header navbar navbar-fixed top" role="banner">
 		<div class="site-branding">
 			<a class="site-home-link" href="/">&nbsp;</a>
@@ -50,13 +58,6 @@
 					}
 				?>
 			</h1> -->
-		</div>
-		<div class="relative">
-			<div class="main-menu">
-				<nav id="site-navigation" class="main-navigation" role="navigation">
-					<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-				</nav><!-- #site-navigation -->
-			</div>
 		</div>
 	</header><!-- #masthead -->
 	<?php get_sidebar(); ?>

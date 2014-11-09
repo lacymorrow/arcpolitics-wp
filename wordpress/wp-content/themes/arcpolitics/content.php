@@ -14,6 +14,9 @@
 			</div>
 	    <?php } ?>
 		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+		<div class="entry-meta">
+			<?php arcpolitics_posted_on(); ?>
+		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
