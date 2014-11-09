@@ -8,7 +8,6 @@
     <?php if ( has_post_thumbnail() ) { ?>
 		<div class="post-thumb">
 	    	<?php if ( is_single() ) { ?>
-	    	sdg
 		    	<a href="<?php esc_url( get_permalink() ); ?>">
 		            <?php the_post_thumbnail('large'); ?>
 		        </a>

@@ -45,7 +45,7 @@
 			<ul class="social-links">
 				<li><a href="https://www.facebook.com/arcpoliticspage"><span class="fa fa-facebook"></span></a></li>
 				<li><a href="https://twitter.com/Arcpolitics"><span class="fa fa-twitter"></span></a></li>
-				<li><a href="#"><span class="fa fa-google-plus"></span></a></li>
+				<li><a href="https://plus.google.com/109254041109425777138/about"><span class="fa fa-google-plus"></span></a></li>
 			</ul>
 			<div class="site-logo">
 				<a class="site-home-link" href="/">&nbsp;</a>
