@@ -25,12 +25,16 @@
 				if ( $the_query->have_posts() ) {
 					while ( $the_query->have_posts() ) {
 						$the_query->the_post();
-						if( is_single() && $wp_query->post->ID == $the_query->post->ID ) { ?>
-							<li class="active"><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></li>
-						<?php } else { ?>
-							<li><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></li>
-						<?php }
-					}
+						$post_date = mysql2date("Ymd", $post->post_date_gmt);
+						$classes = '';
+						if( is_single() && $wp_query->post->ID == $the_query->post->ID ) {
+							$classes = ltrim($classes . ' active');
+						}
+						if($post_date==date('Ymd')){
+							$classes = ltrim($classes . ' today');
+						} ?>
+						<li class="<?php echo $classes; ?>"><a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a></li>
+					<?php }
 				} else {
 					// no posts found
 				}
