@@ -1,4 +1,6 @@
+.DS_Store
 .vagrant
 .ey_local_data
 latest.tar.gz
 /wp-tests/
+node_modules
